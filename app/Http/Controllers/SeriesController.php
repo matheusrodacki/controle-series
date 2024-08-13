@@ -14,6 +14,6 @@ class SeriesController extends Controller
             'Breaking Bad'
         ];
 
-        return view('listar-series', ['series' => $series]);
+        return view('listar-series', compact('series'));
     }
 }
