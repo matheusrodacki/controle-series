@@ -1,7 +1,9 @@
 <x-layout title="Nova Série">
-    <form method="POST">
-        <label for="name">Nome da Série:</label>
-        <input type="text" name="name" id="name" class="form-control">
-        <button class="btn btn-primary mt-2">Adicionar</button>
+    <form method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome da Série:</label>
+            <input type="text" name="name" id="name" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-dark mt-2">Adicionar</button>
     </form>
 </x-layout>
