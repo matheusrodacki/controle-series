@@ -26,6 +26,17 @@ class SeriesController extends Controller
         return to_route('series.index')->with('message.success', "Série '{$serie->nome}' cadastrada com sucesso!");
     }
 
+    public function edit(Serie $series)
+    {
+        return view('series.edit')->with('serie', $series);
+    }
+
+    public function update(Request $request, Serie $series)
+    {
+        $series->update($request->all());
+        return to_route('series.index')->with('message.success', "Série '{$series->nome}' atualizada com sucesso!");
+    }
+
     public function destroy(Serie $series)
     {
         $series->delete();
