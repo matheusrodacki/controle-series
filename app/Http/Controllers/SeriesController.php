@@ -22,7 +22,13 @@ class SeriesController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'nome' => ['required', 'string', 'min:3
+            ', 'max:255'],
+        ]);
+
         $serie = Serie::create($request->all());
+
         return to_route('series.index')->with('message.success', "Série '{$serie->nome}' cadastrada com sucesso!");
     }
 
@@ -33,6 +39,11 @@ class SeriesController extends Controller
 
     public function update(Request $request, Serie $series)
     {
+        $request->validate([
+            'nome' => ['required', 'string', 'min:3
+            ', 'max:255'],
+        ]);
+
         $series->update($request->all());
         return to_route('series.index')->with('message.success', "Série '{$series->nome}' atualizada com sucesso!");
     }
