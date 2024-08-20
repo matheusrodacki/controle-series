@@ -5,8 +5,8 @@
     @endisset
     <div class="mb-3">
         <label for="name" class="form-label">Nome da Série:</label>
-        <input type="text" name="nome" id="nome" class="form-control"
-            @isset($nome) value="{{ $nome }}" @endisset>
+        <input type="text" name="name" id="name" class="form-control"
+            @isset($name) value="{{ $name }}" @endisset>
 
     </div>
     <button type="submit" class="btn btn-dark mt-2">
