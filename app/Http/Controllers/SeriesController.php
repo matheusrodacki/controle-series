@@ -25,12 +25,12 @@ class SeriesController extends Controller
     {
 
         $serie = Serie::create($request->all());
-
         return to_route('series.index')->with('message.success', "Série '{$serie->nome}' cadastrada com sucesso!");
     }
 
     public function edit(Serie $series)
     {
+        dd($series->seasons);
         return view('series.edit')->with('serie', $series);
     }
 
