@@ -9,6 +9,9 @@ class Episode extends Model
 {
     use HasFactory;
     protected $fillable = ['number'];
+    protected $casts = [
+        'watched' => 'boolean',
+    ];
 
     public function season()
     {

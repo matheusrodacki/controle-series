@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Season;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EpisodesController
 {
@@ -15,21 +16,20 @@ class EpisodesController
       'episodes' => $season->episodes,
     ]);
   }
-  public function store(Request $request, Season $season)
+  public function update(Request $request, Season $season)
   {
-    dd($request->all());
+    DB::beginTransaction();
+    $watchedEpisodes = $request->episodes; // Get the watched episodes from the request
 
-    // Validate the request data
-    $validatedData = $request->validate([
-      'title' => 'required|string|max:255',
-      'description' => 'nullable|string',
-      'air_date' => 'required|date',
-    ]);
+    $season->episodes->each(function ($episode) use ($watchedEpisodes) {
+      $episode->watched = in_array($episode->id, $watchedEpisodes);
+    });
 
-    // Create a new episode
-    $season->episodes()->create($validatedData);
+    $season->push(); // Save the changes to the database
+
+    DB::commit();
 
     // Redirect back to the episodes index
-    return redirect()->route('episodes.index', $season)->with('success', 'Episode created successfully.');
+    return redirect()->route('episodes.index', $season->id);
   }
 }
