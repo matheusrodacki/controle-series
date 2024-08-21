@@ -28,11 +28,11 @@ class SeriesFormRequest extends FormRequest
 
     // public function messages()
     // {
-    //     //Traduzindo as mensagens de erro:
-    //     // return [
-    //     //     'nome.required' => 'O campo nome é obrigatório.',
-    //     //     'nome.min' => 'O campo nome deve ter pelo menos :min caracteres.',
-    //     //     'nome.max' => 'O campo nome deve ter no máximo :max caracteres.',
-    //     // ];
+    //Traduzindo as mensagens de erro:
+    // return [
+    //     'nome.required' => 'O campo nome é obrigatório.',
+    //     'nome.min' => 'O campo nome deve ter pelo menos :min caracteres.',
+    //     'nome.max' => 'O campo nome deve ter no máximo :max caracteres.',
+    // ];
     // }
 }

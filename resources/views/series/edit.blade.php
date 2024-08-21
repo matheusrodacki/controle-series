@@ -8,16 +8,6 @@
                 <input type="text" name="name" id="name" class="form-control" value="{{ $series->name }}"
                     autofocus>
             </div>
-            <div class="col-2">
-                <label for="seasonsQty" class="form-label">Número de Temporadas:</label>
-                <input type="text" name="seasonsQty" id="seasonsQty" class="form-control"
-                    value="{{ $series->seasons->count() }}">
-            </div>
-            <div class="col-2">
-                <label for="episodesPerSeason" class="form-label">Episodios por Temporada:</label>
-                <input type="text" name="episodesPerSeason" id="episodesPerSeason" class="form-control"
-                    value="{{}}">
-            </div>
         </div>
         <button type="submit" class="btn btn-dark mt-2">
             Salvar
