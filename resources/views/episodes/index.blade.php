@@ -1,4 +1,11 @@
 <x-layout title="Episódios">
+
+    @isset($successMessage)
+        <div class="alert alert-success">
+            {{ $successMessage }}
+        </div>
+    @endisset
+
     <form method="POST">
         @csrf
         <ul class="list-group">

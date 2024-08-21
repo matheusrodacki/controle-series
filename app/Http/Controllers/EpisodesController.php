@@ -14,6 +14,7 @@ class EpisodesController
   {
     return view('episodes.index', [
       'episodes' => $season->episodes,
+      'successMessage' => session('message.success'),
     ]);
   }
   public function update(Request $request, Season $season)
@@ -30,6 +31,6 @@ class EpisodesController
     DB::commit();
 
     // Redirect back to the episodes index
-    return redirect()->route('episodes.index', $season->id);
+    return redirect()->route('episodes.index', $season->id)->with('message.success', 'Episódios marcou como assistidos com sucesso!');
   }
 }
