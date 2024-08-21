@@ -10,7 +10,7 @@ use App\Models\Season;
 use App\Models\Series;
 use Illuminate\Support\Facades\DB;
 
-class EloquentSeriesRepository
+class EloquentSeriesRepository implements SeriesRepository
 {
   public function add(SeriesFormRequest $request): Series
   {
