@@ -26,9 +26,7 @@ class SeriesController extends Controller
 
     public function store(SeriesFormRequest $request)
     {
-        $serie = null;
-
-        DB::transaction(function () use ($request, &$serie) {
+        $serie =  DB::transaction(function () use ($request, &$serie) {
 
             $serie = Series::create($request->all());
             $seasons = [];
@@ -39,6 +37,7 @@ class SeriesController extends Controller
                     'number' => $i
                 ];
             }
+
             Season::insert($seasons);
 
             $episodes = [];
@@ -53,7 +52,9 @@ class SeriesController extends Controller
             }
 
             Episode::insert($episodes);
-        });
+
+            return $serie;
+        }, 5);
 
         return to_route('series.index')->with('message.success', "Série '{$serie->name}' cadastrada com sucesso!");
     }
