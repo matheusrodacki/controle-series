@@ -11,7 +11,13 @@
 </head>
 
 <body>
-    <div class="container">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ route('series.index') }}">Controle de Séries</a>
+            <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+        </div>
+    </nav>
+    <div class="container mt-2">
         <h1>{{ $title }}</h1>
 
         @if ($errors->any())
