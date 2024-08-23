@@ -1,4 +1,4 @@
-<x-layout title="Login">
+<x-layout title="Login" login-form="true">
     @isset($successMessage)
         <div class="alert alert-success">
             {{ $successMessage }}

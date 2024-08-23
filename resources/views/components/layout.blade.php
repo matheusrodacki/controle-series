@@ -14,7 +14,15 @@
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('series.index') }}">Controle de Séries</a>
-            <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+            @auth
+                <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+            @endauth
+
+            @guest
+                @if (!isset($loginForm))
+                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                @endif
+            @endguest
         </div>
     </nav>
     <div class="container mt-2">
